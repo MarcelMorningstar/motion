@@ -1,0 +1,40 @@
+@use "bootstrap";
+
+* {
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 200px;
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: rgba(121, 121, 121, 0.6);
+        border-radius: 25px;
+        border: 3px transparent solid;
+        background-clip: padding-box;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(121, 121, 121, 0.75);
+        border: 3px transparent solid;
+        background-clip: padding-box;
+    }
+    
+    &::-webkit-scrollbar-thumb:active {
+        background: rgba(121, 121, 121, 0.9);
+        border: 3px transparent solid;
+        background-clip: padding-box;
+    }
+}
