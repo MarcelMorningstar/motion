@@ -29,7 +29,7 @@ function ProductList({ products }) {
                         name={product.name} 
                         category={product.category} 
                         material={product.material} 
-                        style={product.style} 
+                        style={product.productstyles} 
                         price={product.price} 
                         images={product.images}
                     />
@@ -74,7 +74,7 @@ function Products(props) {
             sortByPrice(products
             .filter((product) => product.category.includes(category))
             .filter((product) => product.gender.includes(gender))
-            .filter((product) => product.style.includes(style))
+            .filter((product) => product.productstyles.find((productstyle) => productstyle.style.includes(style)))
             .filter((product) => product.material.includes(material))
             .filter((product) => product.price <= range.max && product.price >= range.min),
             sortTerm

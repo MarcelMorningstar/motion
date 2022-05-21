@@ -21622,7 +21622,7 @@ function ProductList(_ref) {
         name: product.name,
         category: product.category,
         material: product.material,
-        style: product.style,
+        style: product.productstyles,
         price: product.price,
         images: product.images
       }, product.ID);
@@ -21693,7 +21693,9 @@ function Products(props) {
     }).filter(function (product) {
       return product.gender.includes(gender);
     }).filter(function (product) {
-      return product.style.includes(style);
+      return product.productstyles.find(function (productstyle) {
+        return productstyle.style.includes(style);
+      });
     }).filter(function (product) {
       return product.material.includes(material);
     }).filter(function (product) {

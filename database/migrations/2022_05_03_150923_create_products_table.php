@@ -20,10 +20,8 @@ return new class extends Migration
             $table -> decimal('price', 5, 2);
             $table -> bigInteger('categoryID') -> unsigned();
             $table -> bigInteger('materialID') -> unsigned();
-            $table -> bigInteger('styleID') -> unsigned();
             $table -> foreign('categoryID') -> references('ID') -> on('categories');
             $table -> foreign('materialID') -> references('ID') -> on('materials');
-            $table -> foreign('styleID') -> references('ID') -> on('styles');
         });
     }
 

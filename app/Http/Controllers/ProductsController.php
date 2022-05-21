@@ -12,11 +12,17 @@ class ProductsController extends Controller
 {
     function show()
     {
-        $data = Product::with('images') 
-        -> select('products.ID', 'products.name', 'products.price', 'products.gender', 'categories.name AS category', 'materials.name AS material', 'styles.name AS style') 
+        $data = Product::with([
+            'images', 
+            'productstyles' => function($item) {
+                $item
+                -> join('styles', 'styles.ID', '=', 'productstyles.styleID')
+                -> select('productstyles.*', 'styles.name AS style');
+            }
+        ]) 
         -> join('categories', 'categories.ID', '=', 'products.categoryID') 
         -> join('materials', 'materials.ID', '=', 'products.materialID') 
-        -> join('styles', 'styles.ID', '=', 'products.styleID') 
+        -> select('products.ID', 'products.name', 'products.price', 'products.gender', 'categories.name AS category', 'materials.name AS material') 
         -> get();
 
         $categories = Category::select('*') -> orderBy('name', 'asc') -> get();
