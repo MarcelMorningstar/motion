@@ -7,7 +7,6 @@ function Product(props) {
     return (
         <a href={'/products/' + props.name} className='product'>
             <h2 className='name'>{props.name}</h2>
-            <h3 className='category'>{props.style} {props.material} {props.category}</h3>
             <span className='price'>{props.price}€</span>
             <div>
                 {
@@ -293,12 +292,7 @@ function Products(props) {
                     font-family: var(--font-2);
                     font-size: 2.5em;
                     font-weight: 700;
-                }
-
-                #products section h3 {
-                    font-family: var(--font-2);
-                    font-size: 1.25em;
-                    font-weight: 400;
+                    line-height: .87em;
                 }
 
                 #products section h4 {
@@ -309,8 +303,9 @@ function Products(props) {
 
                 #products section span {
                     font-family: var(--font-2);
-                    font-size: 1.25em;
+                    font-size: 1em;
                     font-weight: 300;
+                    line-height: 2em;
                 }
 
                 #products section button {
@@ -318,6 +313,7 @@ function Products(props) {
                     background-color: transparent;
                     border: none;
                     cursor: pointer;
+                    transition: color .3s linear;
                 }
 
                 #products section button:focus {
@@ -413,13 +409,26 @@ function Products(props) {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    margin: 0 0 48px 0;
+                    margin: 0 0 81px 0;
                     color: black;
                     text-decoration: none;
+                    transition: color .3s ease-in;
                 }
 
                 #products section#product_list a.product:hover {
                     color: var(--color-blue);
+                }
+
+                #products section#product_list a.product div {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                #products section#product_list a.product div img {
+                    width: 260px;
+                    height: 260px;
                 }
             `}</style>
         </div>
