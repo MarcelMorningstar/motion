@@ -21520,6 +21520,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Products */ "./resources/js/components/Products.jsx");
 
+__webpack_require__(/*! ./components/Dealers */ "./resources/js/components/Dealers.jsx");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -21550,6 +21552,123 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Dealers.jsx":
+/*!*********************************************!*\
+  !*** ./resources/js/components/Dealers.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function Dealers(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("0"),
+      _useState2 = _slicedToArray(_useState, 2),
+      filterTerm = _useState2[0],
+      setFilterTerm = _useState2[1];
+
+  var countries = filterDealersByCountry();
+
+  function filterDealersByCountry() {
+    if (filterTerm != "0") {
+      return JSON.parse(props.countries).filter(function (country) {
+        return country.ID == filterTerm;
+      });
+    } else {
+      return JSON.parse(props.countries);
+    }
+  }
+
+  function updateFilterHandler(event) {
+    setFilterTerm(event.target.value);
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    countries = filterDealersByCountry();
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      id: "dealers",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        children: "DEALERS"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+        name: "country_filter",
+        id: "country_filter",
+        defaultValue: "0",
+        onChange: updateFilterHandler,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+          value: "0",
+          children: "- All Countries -"
+        }), JSON.parse(props.countries).map(function (country) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+            value: country.ID,
+            children: country.country
+          }, country.ID);
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: countries.map(function (country) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "country_dealers",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+              children: country.country
+            }, country.ID), JSON.parse(props.dealers).map(function (dealer) {
+              if (dealer.countryID == country.ID) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "dealer",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                    children: dealer.name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    children: dealer.adress
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    children: dealer.phone
+                  })]
+                }, dealer.ID);
+              }
+            })]
+          });
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("style", {
+      jsx: "true",
+      children: "\n                div#dealers {\n                    overflow-y: overlay;\n                    width: 25vw;\n                    height: calc(100vh - 80px);\n                    user-select: none;\n                }\n            \n                div#dealers h1 {\n                    margin: 32px 0 8px 0;\n                    text-align: center;\n                    font-family: var(--font-3);\n                    font-size: 2em;\n                    font-weight: 700;\n                    color: var(--color-dark-grey);\n                }\n            \n                div#dealers select {\n                    display: block;\n                    width: 220px;\n                    height: 40px;\n                    margin: 0 auto;\n                    padding: 5px 45px 5px 10px;\n                    font-family: var(--font-3);\n                    font-size: 15px;\n                    color: var(--color-light-grey);\n                    border-radius: 0;\n                }\n            \n                div#dealers div .country_dealers {\n                    position: relative;\n                    margin: 24px 7% 4px 4%;\n                }\n            \n                div#dealers div .country_dealers::after {\n                    content: '';\n                    position: absolute;\n                    bottom: -8px;\n                    left: 50%;\n                    transform: translateX(-50%);\n                    width: 104%;\n                    height: 1.4px;\n                    background-color: var(--color-light-grey);\n                }\n            \n                div#dealers div .country_dealers h2 {\n                    font-family: var(--font-3);\n                    font-size: 1.2em;\n                    font-weight: 300;\n                    text-transform: uppercase;\n                }\n            \n                div#dealers div .country_dealers h3 {\n                    font-family: var(--font-3);\n                    font-size: 1.2em;\n                    font-weight: 700;\n                    text-transform: uppercase;\n                }\n                    \n                div#dealers div .country_dealers span {\n                    display: block;\n                    font-family: var(--font-3);\n                    font-size: 1em;\n                    font-weight: 400;\n                }\n        \n                div#dealers div .country_dealers .dealer {\n                    margin: 5px 0 0 5px;\n                }\n            "
+    })]
+  });
+}
+
+if (document.getElementById('dealers')) {
+  var element = document.getElementById('dealers');
+  var props = Object.assign({}, element.dataset);
+  react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot(element).render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Dealers, _objectSpread({}, props)));
+}
 
 /***/ }),
 
@@ -21956,7 +22075,7 @@ function Products(props) {
       products: result
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("style", {
       jsx: "true",
-      children: "\n                #products {\n                    display: grid;\n                    grid-template-columns: 1fr 3fr;\n                    column-gap: 100px;\n                    width: min(90vw, 1200px);\n                    margin: 32px auto 0 auto;\n                }\n\n                #products section {\n                    display: flex;\n                }\n\n                #products section h1 {\n                    font-family: var(--font-3);\n                    font-size: 2em;\n                    font-weight: 700;\n                }\n\n                #products section h2 {\n                    font-family: var(--font-2);\n                    font-size: 2.5em;\n                    font-weight: 700;\n                    line-height: .87em;\n                }\n\n                #products section h4 {\n                    font-family: var(--font-3);\n                    font-size: .94em;\n                    font-weight: 700;\n                }\n\n                #products section span {\n                    font-family: var(--font-2);\n                    font-size: 1em;\n                    font-weight: 300;\n                    line-height: 2em;\n                }\n\n                #products section button {\n                    font-family: var(--font-3);\n                    background-color: transparent;\n                    border: none;\n                    cursor: pointer;\n                    transition: color .3s linear;\n                }\n\n                #products section button:focus {\n                    outline: none;\n                }\n\n                #products section button:hover {\n                    color: var(--color-blue);\n                }\n\n                #products section button.active {\n                    color: var(--color-blue);\n                }\n\n                #products section#sort {\n                    grid-column-start: 1;\n                    grid-column-end: 3;\n                    align-items: center;\n                    justify-content: space-between;\n                }\n\n                #products section#sort div label {\n                    margin: 0 16px 0 0;\n                    font-family: var(--font-3);\n                }\n\n                #products section#sort div select {\n                    width: 128px;\n                    height: 32px;\n                    font-family: var(--font-3);\n                    border-radius: 0;\n                }\n\n                #products section#sort div select:focus {\n                    outline: none;\n                }\n\n                #products section#categories {\n                    grid-column-start: 1;\n                    grid-column-end: 3;\n                    margin: 0 0 27px 0;\n                }\n\n                #products section#categories div button {\n                    margin: 10px 20px 10px 0;\n                    font-size: 1em;\n                    font-weight: 700;\n                }\n\n                #products section#filters {\n                    grid-column-start: 1;\n                    grid-column-end: 2;\n                    flex-direction: column;\n                }\n\n                #products section#filters div {\n                    display: flex;\n                    flex-direction: column;\n                }\n\n                #products section#filters div h4 {\n                    margin: 25px 0 9px 0;\n                }\n\n                #products section#filters div button {\n                    width: fit-content;\n                    padding: 0;\n                    line-height: 1.6em;\n                    font-size: .8em;\n                    font-weight: 300;\n                    text-align: left;\n                }\n\n                #products section#filters div #price_input {\n                    display: flex;\n                    flex-direction: row;\n                    justify-content: space-between;\n                }\n\n                #products section#filters div #price_input input {\n                    padding: 0;\n                    font-size: .8em;\n                }\n\n                #products section#product_list {\n                    grid-column-start: 2;\n                    grid-column-end: 3;\n                    display: flex;\n                    flex-direction: column;\n                }\n\n                #products section#product_list a.product {\n                    display: flex;\n                    flex-direction: column;\n                    align-items: center;\n                    margin: 0 0 81px 0;\n                    color: black;\n                    text-decoration: none;\n                    transition: color .3s ease-in;\n                }\n\n                #products section#product_list a.product:hover {\n                    color: var(--color-blue);\n                }\n\n                #products section#product_list a.product div {\n                    display: flex;\n                    flex-direction: row;\n                    flex-wrap: wrap;\n                    justify-content: center;\n                }\n\n                #products section#product_list a.product div img {\n                    width: 260px;\n                    height: 260px;\n                }\n            "
+      children: "\n                div#products {\n                    display: grid;\n                    grid-template-columns: 1fr 3fr;\n                    column-gap: 100px;\n                    width: min(90vw, 1200px);\n                    margin: 32px auto 0 auto;\n                    user-select: none;\n                }\n\n                div#products section {\n                    display: flex;\n                }\n\n                div#products section h1 {\n                    font-family: var(--font-3);\n                    font-size: 2em;\n                    font-weight: 700;\n                }\n\n                div#products section h2 {\n                    font-family: var(--font-2);\n                    font-size: 2.5em;\n                    font-weight: 700;\n                    line-height: .87em;\n                    text-transform: uppercase;\n                }\n\n                div#products section h4 {\n                    font-family: var(--font-3);\n                    font-size: .94em;\n                    font-weight: 700;\n                }\n\n                div#products section span {\n                    font-family: var(--font-2);\n                    font-size: 1em;\n                    font-weight: 300;\n                    line-height: 2em;\n                }\n\n                div#products section button {\n                    font-family: var(--font-3);\n                    background-color: transparent;\n                    border: none;\n                    cursor: pointer;\n                    transition: color .3s linear;\n                }\n\n                div#products section button:focus {\n                    outline: none;\n                }\n\n                div#products section button:hover {\n                    color: var(--color-blue);\n                }\n\n                div#products section button.active {\n                    color: var(--color-blue);\n                }\n\n                div#products section#sort {\n                    grid-column-start: 1;\n                    grid-column-end: 3;\n                    align-items: center;\n                    justify-content: space-between;\n                }\n\n                div#products section#sort div label {\n                    margin: 0 16px 0 0;\n                    font-family: var(--font-3);\n                }\n\n                div#products section#sort div select {\n                    width: 128px;\n                    height: 32px;\n                    font-family: var(--font-3);\n                    border-radius: 0;\n                }\n\n                div#products section#sort div select:focus {\n                    outline: none;\n                }\n\n                div#products section#categories {\n                    grid-column-start: 1;\n                    grid-column-end: 3;\n                    margin: 0 0 27px 0;\n                }\n\n                div#products section#categories div button {\n                    margin: 10px 20px 10px 0;\n                    font-size: 1em;\n                    font-weight: 700;\n                }\n\n                div#products section#filters {\n                    grid-column-start: 1;\n                    grid-column-end: 2;\n                    flex-direction: column;\n                }\n\n                div#products section#filters div {\n                    display: flex;\n                    flex-direction: column;\n                }\n\n                div#products section#filters div h4 {\n                    margin: 25px 0 9px 0;\n                }\n\n                div#products section#filters div button {\n                    width: fit-content;\n                    padding: 0;\n                    line-height: 1.6em;\n                    font-size: .8em;\n                    font-weight: 300;\n                    text-align: left;\n                }\n\n                div#products section#filters div #price_input {\n                    display: flex;\n                    flex-direction: row;\n                    justify-content: space-between;\n                }\n\n                div#products section#filters div #price_input input {\n                    padding: 0;\n                    font-size: .8em;\n                }\n\n                div#products section#product_list {\n                    grid-column-start: 2;\n                    grid-column-end: 3;\n                    display: flex;\n                    flex-direction: column;\n                }\n\n                div#products section#product_list a.product {\n                    display: flex;\n                    flex-direction: column;\n                    align-items: center;\n                    margin: 0 0 81px 0;\n                    color: black;\n                    text-decoration: none;\n                    transition: color .3s ease-in;\n                }\n\n                div#products section#product_list a.product:hover {\n                    color: var(--color-blue);\n                }\n\n                div#products section#product_list a.product div {\n                    display: flex;\n                    flex-direction: row;\n                    flex-wrap: wrap;\n                    justify-content: center;\n                }\n\n                div#products section#product_list a.product div img {\n                    width: 260px;\n                    height: 260px;\n                }\n            "
     })]
   });
 }

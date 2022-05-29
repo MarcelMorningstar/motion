@@ -270,45 +270,47 @@ function Products(props) {
             <ProductList products={result} />
 
             <style jsx='true'>{`
-                #products {
+                div#products {
                     display: grid;
                     grid-template-columns: 1fr 3fr;
                     column-gap: 100px;
                     width: min(90vw, 1200px);
                     margin: 32px auto 0 auto;
+                    user-select: none;
                 }
 
-                #products section {
+                div#products section {
                     display: flex;
                 }
 
-                #products section h1 {
+                div#products section h1 {
                     font-family: var(--font-3);
                     font-size: 2em;
                     font-weight: 700;
                 }
 
-                #products section h2 {
+                div#products section h2 {
                     font-family: var(--font-2);
                     font-size: 2.5em;
                     font-weight: 700;
                     line-height: .87em;
+                    text-transform: uppercase;
                 }
 
-                #products section h4 {
+                div#products section h4 {
                     font-family: var(--font-3);
                     font-size: .94em;
                     font-weight: 700;
                 }
 
-                #products section span {
+                div#products section span {
                     font-family: var(--font-2);
                     font-size: 1em;
                     font-weight: 300;
                     line-height: 2em;
                 }
 
-                #products section button {
+                div#products section button {
                     font-family: var(--font-3);
                     background-color: transparent;
                     border: none;
@@ -316,69 +318,69 @@ function Products(props) {
                     transition: color .3s linear;
                 }
 
-                #products section button:focus {
+                div#products section button:focus {
                     outline: none;
                 }
 
-                #products section button:hover {
+                div#products section button:hover {
                     color: var(--color-blue);
                 }
 
-                #products section button.active {
+                div#products section button.active {
                     color: var(--color-blue);
                 }
 
-                #products section#sort {
+                div#products section#sort {
                     grid-column-start: 1;
                     grid-column-end: 3;
                     align-items: center;
                     justify-content: space-between;
                 }
 
-                #products section#sort div label {
+                div#products section#sort div label {
                     margin: 0 16px 0 0;
                     font-family: var(--font-3);
                 }
 
-                #products section#sort div select {
+                div#products section#sort div select {
                     width: 128px;
                     height: 32px;
                     font-family: var(--font-3);
                     border-radius: 0;
                 }
 
-                #products section#sort div select:focus {
+                div#products section#sort div select:focus {
                     outline: none;
                 }
 
-                #products section#categories {
+                div#products section#categories {
                     grid-column-start: 1;
                     grid-column-end: 3;
                     margin: 0 0 27px 0;
                 }
 
-                #products section#categories div button {
+                div#products section#categories div button {
                     margin: 10px 20px 10px 0;
                     font-size: 1em;
                     font-weight: 700;
                 }
 
-                #products section#filters {
+                div#products section#filters {
                     grid-column-start: 1;
                     grid-column-end: 2;
                     flex-direction: column;
                 }
 
-                #products section#filters div {
+                div#products section#filters div {
                     display: flex;
                     flex-direction: column;
                 }
 
-                #products section#filters div h4 {
+                div#products section#filters div h4 {
                     margin: 25px 0 9px 0;
                 }
 
-                #products section#filters div button {
+                div#products section#filters div button {
                     width: fit-content;
                     padding: 0;
                     line-height: 1.6em;
@@ -387,25 +389,25 @@ function Products(props) {
                     text-align: left;
                 }
 
-                #products section#filters div #price_input {
+                div#products section#filters div #price_input {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
                 }
 
-                #products section#filters div #price_input input {
+                div#products section#filters div #price_input input {
                     padding: 0;
                     font-size: .8em;
                 }
 
-                #products section#product_list {
+                div#products section#product_list {
                     grid-column-start: 2;
                     grid-column-end: 3;
                     display: flex;
                     flex-direction: column;
                 }
 
-                #products section#product_list a.product {
+                div#products section#product_list a.product {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -415,18 +417,18 @@ function Products(props) {
                     transition: color .3s ease-in;
                 }
 
-                #products section#product_list a.product:hover {
+                div#products section#product_list a.product:hover {
                     color: var(--color-blue);
                 }
 
-                #products section#product_list a.product div {
+                div#products section#product_list a.product div {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
                     justify-content: center;
                 }
 
-                #products section#product_list a.product div img {
+                div#products section#product_list a.product div img {
                     width: 260px;
                     height: 260px;
                 }
