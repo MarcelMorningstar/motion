@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table -> id('ID') -> unsigned();
             $table -> string('image', 64);
+            $table -> string('color', 20);
             $table -> bigInteger('productID') -> unsigned();
             $table -> foreign('productID') -> references('ID') -> on('products');
         });

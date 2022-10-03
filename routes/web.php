@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DealersController;
 
 /*
@@ -20,8 +21,12 @@ Route::get('/', [SitemapController::class, 'welcome']);
 
 Route::get('/products', [ProductsController::class, 'show']);
 
+Route::get('/products/{name}', [ProductController::class, 'show']);
+
 Route::get('/about-us', [SitemapController::class, 'about']);
 
 Route::get('/contact-us', [SitemapController::class, 'contact']);
 
 Route::get('/dealers', [DealersController::class, 'show']);
+
+Route::get('/admin', [SitemapController::class, 'admin']);

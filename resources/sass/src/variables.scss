@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 
 :root {
+    --font-0: 'Raleway', sans-serif;
     --font-1: 'Open Sans', sans-serif;
     --font-2: 'Roboto', sans-serif;
     --font-3: 'Roboto Condensed', sans-serif;
-    --color-dark-grey: #141414;
-    --color-light-grey: #787878;
-    --color-white: #ffffff;
-    --color-blue: #00A5CC;
+    --color-1: #141414;
+    --color-2: #787878;
+    --color-3: #eaeaea;
+    --color-4: #FF6E4B;
+    --color-5: #00A5CC;
 }

@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import React, { useState, useEffect, useTransition } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Slider from '@mui/material/Slider';
 import Input from '@mui/material/TextField';
 
@@ -48,6 +49,22 @@ function Products(props) {
     const [style, setStyle] = useState('');
     const [material, setMaterial] = useState('');
     const [range, setRange] = useState({min: 0, max: 1000});
+
+    const theme = createTheme({
+        status: {
+          danger: '#e53e3e',
+        },
+        palette: {
+          primary: {
+            main: '#0971f1',
+            darker: '#053e85',
+          },
+          motion: {
+            main: '#FF6E4B',
+            contrastText: '#fff',
+          },
+        },
+    });
 
     function sortByPrice(data, sortTerm) {
         if (sortTerm == 1) {
@@ -221,47 +238,56 @@ function Products(props) {
                 <div>
                     <h4>PRICE RANGE</h4>
                     <div id='price_input'>
-                        <Input 
-                            value={range.min}
-                            onChange={handleMinInputChange}
-                            onBlur={handleBlur1}
-                            variant="standard"
-                            inputProps={{
-                                step: 10,
-                                min: 0,
-                                max: 1000,
-                                type: 'number',
-                                'aria-labelledby': 'input-slider',
-                            }}
-                            sx={{
-                                width: 70
-                            }}
-                        />
-                        <Input 
-                            value={range.max}
-                            onChange={handleMaxInputChange}
-                            onBlur={handleBlur2}
-                            variant="standard"
-                            inputProps={{
-                                step: 10,
-                                min: 0,
-                                max: 1000,
-                                type: 'number',
-                                'aria-labelledby': 'input-slider',
-                            }}
-                            sx={{
-                                width: 70
-                            }}
-                        />
+                        <ThemeProvider theme={theme}>
+                            <Input 
+                                value={range.min}
+                                onChange={handleMinInputChange}
+                                onBlur={handleBlur1}
+                                color="motion"
+                                variant="standard"
+                                inputProps={{
+                                    step: 10,
+                                    min: 0,
+                                    max: 1000,
+                                    type: 'number',
+                                    'aria-labelledby': 'input-slider',
+                                }}
+                                sx={{
+                                    width: 70
+                                }}
+                            />
+                        </ThemeProvider>
+                        <ThemeProvider theme={theme}>
+                            <Input 
+                                value={range.max}
+                                onChange={handleMaxInputChange}
+                                onBlur={handleBlur2}
+                                color="motion"
+                                variant="standard"
+                                inputProps={{
+                                    step: 10,
+                                    min: 0,
+                                    max: 1000,
+                                    type: 'number',
+                                    'aria-labelledby': 'input-slider',
+                                }}
+                                sx={{
+                                    width: 70
+                                }}
+                            />
+                        </ThemeProvider>
                     </div>
-                    <Slider 
-                        value={[range.min, range.max]} 
-                        min={0} 
-                        max={1000} 
-                        onChange={updateSliderRangeHandler} 
-                        valueLabelDisplay="off" 
-                        disableSwap
-                    />
+                    <ThemeProvider theme={theme}>
+                        <Slider 
+                            value={[range.min, range.max]} 
+                            min={0} 
+                            max={1000} 
+                            onChange={updateSliderRangeHandler} 
+                            valueLabelDisplay="off" 
+                            color="motion"
+                            disableSwap
+                        />
+                    </ThemeProvider>
                 </div>
             </section>
 
@@ -323,11 +349,11 @@ function Products(props) {
                 }
 
                 div#products section button:hover {
-                    color: var(--color-blue);
+                    color: var(--color-4);
                 }
 
                 div#products section button.active {
-                    color: var(--color-blue);
+                    color: var(--color-4);
                 }
 
                 div#products section#sort {
@@ -414,11 +440,11 @@ function Products(props) {
                     margin: 0 0 81px 0;
                     color: black;
                     text-decoration: none;
-                    transition: color .3s ease-in;
+                    transition: color .2s ease-in;
                 }
 
                 div#products section#product_list a.product:hover {
-                    color: var(--color-blue);
+                    color: var(--color-4);
                 }
 
                 div#products section#product_list a.product div {

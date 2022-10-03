@@ -1,8 +1,6 @@
 <footer>
     <section class='sitemap'>
         <a href="/products">Products</a>
-        <a href="/about-us">About Us</a>
-        <a href="/contact-us">Contact Us</a>
         <a href="/dealers">Dealers</a>
     </section>
     <section class='social'>
@@ -20,9 +18,7 @@
         </a>
     </section>
     <section class='sitemap'>
-        <a href="/products">Products</a>
         <a href="/about-us">About Us</a>
         <a href="/contact-us">Contact Us</a>
-        <a href="/dealers">Dealers</a>
     </section>
 </footer>

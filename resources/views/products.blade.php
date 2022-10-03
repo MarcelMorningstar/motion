@@ -1,17 +1,11 @@
-<x-layout>
+<x-main position="static" color="var(--color-1)">
     <style>
-        header img {
-            width: 100vw;
-        }
-
         section#products {
             margin-bottom: 32px;
         }
     </style>
 
-    <header>
-        <img src="images/products-header.jpg" alt="" loading="eager">
-    </header>
+    <x-header title="Products" messege="Lorem, ipsum dolor sit amet consectetur adipisicing elit" />
     
     <section id='products' data-data='{{$data}}' data-categories='{{$categories}}' data-styles='{{$styles}}' data-materials='{{$materials}}'></section>
-</x-layout>
+</x-main>

@@ -76,7 +76,7 @@ function Dealers(props) {
                     font-family: var(--font-3);
                     font-size: 2em;
                     font-weight: 700;
-                    color: var(--color-dark-grey);
+                    color: var(--color-1);
                 }
             
                 div#dealers select {
@@ -87,7 +87,7 @@ function Dealers(props) {
                     padding: 5px 45px 5px 10px;
                     font-family: var(--font-3);
                     font-size: 15px;
-                    color: var(--color-light-grey);
+                    color: var(--color-2);
                     border-radius: 0;
                 }
             
@@ -104,7 +104,7 @@ function Dealers(props) {
                     transform: translateX(-50%);
                     width: 104%;
                     height: 1.4px;
-                    background-color: var(--color-light-grey);
+                    background-color: var(--color-2);
                 }
             
                 div#dealers div .country_dealers h2 {

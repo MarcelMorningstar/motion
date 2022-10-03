@@ -20,4 +20,11 @@ class SitemapController extends Controller
     {
         return view('contact');
     }
+    
+    function admin()
+    {
+        $url = "http://motion123215.atwebpages.com/";
+
+        return redirect()->away($url);;
+    }
 }

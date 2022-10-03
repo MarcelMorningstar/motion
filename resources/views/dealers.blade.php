@@ -1,13 +1,3 @@
-<x-layout>
-    <style>
-        header {
-            width: 100vw;
-            height: 80px;
-            background-color: var(--color-dark-grey);
-        }
-    </style>
-
-    <header></header>
-
+<x-main position="static" color="var(--color-1)">
     <section id="dealers" data-dealers="{{$dealers}}" data-countries="{{$countries}}"></section>
-</x-layout>
+</x-main>
