@@ -39,15 +39,15 @@ function Dealers(props) {
                 <div>
                     {
                         countries.map((country) => 
-                            <div className='country_dealers'>
-                                <h2 key={country.ID}>{country.country}</h2>
+                            <div key={country.ID} className='country_dealers'>
+                                <h2>{country.country}</h2>
                                 {
                                     JSON.parse(props.dealers).map((dealer) => {
                                         if (dealer.countryID == country.ID) {
                                             return (
                                                 <div key={dealer.ID} className='dealer'>
                                                     <h3>{dealer.name}</h3>
-                                                    <span>{dealer.adress}</span>
+                                                    <span>{dealer.address}</span>
                                                     <span>{dealer.phone}</span>
                                                 </div>
                                             )

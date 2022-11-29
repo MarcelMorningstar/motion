@@ -21844,21 +21844,21 @@ function Dealers(props) {
             className: "country_dealers",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
               children: country.country
-            }, country.ID), JSON.parse(props.dealers).map(function (dealer) {
+            }), JSON.parse(props.dealers).map(function (dealer) {
               if (dealer.countryID == country.ID) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "dealer",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
                     children: dealer.name
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                    children: dealer.adress
+                    children: dealer.address
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     children: dealer.phone
                   })]
                 }, dealer.ID);
               }
             })]
-          });
+          }, country.ID);
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("style", {
@@ -22033,7 +22033,15 @@ function Products(props) {
     return sortByPrice(products.filter(function (product) {
       return product.category.includes(category);
     }).filter(function (product) {
-      return product.gender.includes(gender);
+      if (product.gender == gender) {
+        return true;
+      } else if (gender == "unisex") {
+        return true;
+      } else if (gender == "") {
+        return true;
+      } else {
+        return false;
+      }
     }).filter(function (product) {
       return product.productstyles.find(function (productstyle) {
         return productstyle.style.includes(style);

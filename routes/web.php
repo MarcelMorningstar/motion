@@ -28,5 +28,3 @@ Route::get('/about-us', [SitemapController::class, 'about']);
 Route::get('/contact-us', [SitemapController::class, 'contact']);
 
 Route::get('/dealers', [DealersController::class, 'show']);
-
-Route::get('/admin', [SitemapController::class, 'admin']);

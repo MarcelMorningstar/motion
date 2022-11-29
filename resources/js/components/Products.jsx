@@ -90,7 +90,7 @@ function Products(props) {
         return (
             sortByPrice(products
             .filter((product) => product.category.includes(category))
-            .filter((product) => product.gender.includes(gender))
+            .filter((product) => { if (product.gender == gender) { return true } else if (gender == "unisex") { return true } else if (gender == "") { return true } else { return false } })
             .filter((product) => product.productstyles.find((productstyle) => productstyle.style.includes(style)))
             .filter((product) => product.material.includes(material))
             .filter((product) => product.price <= range.max && product.price >= range.min),
